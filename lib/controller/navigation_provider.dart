@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 
 import '../models/nav_items.dart';
-
 
 class NavigationProvider with ChangeNotifier {
   int _selectedIndex = 0;
@@ -12,33 +11,35 @@ class NavigationProvider with ChangeNotifier {
   final List<NavItem> navItems = [
     NavItem(
       title: 'Home',
-      icon: PhosphorIcons.house(),
-      filledIcon: PhosphorIcons.house(),
+      icon: PhosphorIcons.house,
+      filledIcon: PhosphorIcons.house_fill,
     ),
     NavItem(
       title: 'Notifications',
-      icon: PhosphorIcons.chatText(),
-      filledIcon: PhosphorIcons.chatText(),
-    ),
-    NavItem(
-      title: 'Add',
-      icon: PhosphorIcons.mapPinArea(),
-      filledIcon: PhosphorIcons.mapPinArea(),
+      icon: PhosphorIcons.chat_text,
+      filledIcon: PhosphorIcons.chat_text_fill,
     ),
     NavItem(
       title: 'Location',
-      icon: PhosphorIcons.heart(),
-      filledIcon: PhosphorIcons.house(),
+      icon: PhosphorIcons.map_pin,
+      filledIcon: PhosphorIcons.map_pin_fill,
+    ),
+    NavItem(
+      title: 'Liked',
+      icon: PhosphorIcons.heart,
+      filledIcon: PhosphorIcons.heart_fill,
     ),
     NavItem(
       title: 'Calendar',
-      icon: PhosphorIcons.calendarDots(),
-      filledIcon:PhosphorIcons.calendarDots(),
+      icon: PhosphorIcons.calendar,
+      filledIcon: PhosphorIcons.calendar_fill,
     ),
   ];
 
   void updateIndex(int index) {
-    _selectedIndex = index;
-    notifyListeners();
+    if (index >= 0 && index < navItems.length) {
+      _selectedIndex = index;
+      notifyListeners();
+    }
   }
 }

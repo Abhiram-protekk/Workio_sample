@@ -32,7 +32,8 @@ dependencies:
     sdk: flutter
   provider:
   google_fonts:
-  phosphor_flutter: ^2.1.0
+#  phosphor_flutter: ^2.1.0
+  flutter_phosphor_icons:
   animated_notch_bottom_bar: ^1.0.3
   crystal_navigation_bar: ^1.0.2
   iconly: ^1.0.1

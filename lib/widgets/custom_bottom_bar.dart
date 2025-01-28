@@ -22,20 +22,26 @@ class CustomNavBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: List.generate(
               5, // Total navigation items
-                  (index) => _buildNavItem(context, index),
+              (index) => _buildNavItem(context, index),
             ),
           ),
         ),
       ),
     );
   }
-
   Widget _buildNavItem(BuildContext context, int index) {
     final controller = Provider.of<NavigationProvider>(context);
     final item = controller.navItems[index];
     final isSelected = controller.selectedIndex == index;
 
-    if (index == 2) return const SizedBox(width: 50);
+    if (index == 2) {
+      // Placeholder for FAB interaction
+      return GestureDetector(
+        onTap: () => controller.updateIndex(index),
+        child: const SizedBox(width: 50, height: 50), // Match FAB's space
+      );
+    }
+
     return IconButton(
       onPressed: () => controller.updateIndex(index),
       icon: Icon(
@@ -45,4 +51,21 @@ class CustomNavBar extends StatelessWidget {
       ),
     );
   }
+
+
+// Widget _buildNavItem(BuildContext context, int index) {
+  //   final controller = Provider.of<NavigationProvider>(context);
+  //   final item = controller.navItems[index];
+  //   final isSelected = controller.selectedIndex == index;
+  //
+  //   if (index == 2) return const SizedBox(width: 50); // Empty space for the FAB
+  //   return IconButton(
+  //     onPressed: () => controller.updateIndex(index),
+  //     icon: Icon(
+  //       isSelected ? item.filledIcon : item.icon,
+  //       color: isSelected ? Colors.white : Colors.white70,
+  //       size: isSelected ? 26 : 24,
+  //     ),
+  //   );
+  // }
 }

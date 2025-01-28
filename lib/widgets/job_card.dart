@@ -198,11 +198,8 @@
 //   }
 // }
 
-
-
-
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 
 class JobPostingCard extends StatelessWidget {
   final String title;
@@ -230,7 +227,8 @@ class JobPostingCard extends StatelessWidget {
     this.audioUrl,
     required this.onApply,
     required this.onProfileView,
-    this.profileImageUrl, required this.tag,
+    this.profileImageUrl,
+    required this.tag,
   }) : super(key: key);
 
   @override
@@ -263,10 +261,9 @@ class JobPostingCard extends StatelessWidget {
                       Text(
                         postedBy,
                         style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.black,
-                            fontWeight: FontWeight.bold
-                        ),
+                            fontSize: 14,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -281,25 +278,39 @@ class JobPostingCard extends StatelessWidget {
             const SizedBox(height: 12),
             Row(
               children: [
-                PhosphorIcon(PhosphorIconsBold.mapPinArea,size: 16),
+                Icon(PhosphorIcons.map_pin, size: 16),
                 const SizedBox(width: 4),
-                Text(location,style:TextStyle(fontWeight: FontWeight.bold,)),
+                Text(location,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    )),
                 const Spacer(),
-                PhosphorIcon(PhosphorIconsBold.calendarDots,size: 16),
+                Icon(PhosphorIcons.calendar, size: 16),
                 const SizedBox(width: 4),
-                Text(date,style:TextStyle(fontWeight: FontWeight.bold,)),
+                Text(date,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    )),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                PhosphorIcon(PhosphorIconsBold.userCirclePlus,size: 16),
+                Icon(PhosphorIcons.user_circle, size: 16),
                 const SizedBox(width: 4),
-                Text('People Needed- $peopleNeeded',style:TextStyle(fontWeight: FontWeight.bold, ),),
+                Text(
+                  'People Needed- $peopleNeeded',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 const Spacer(),
-                PhosphorIcon(PhosphorIconsBold.moneyWavy,size: 16),
+                Icon(PhosphorIcons.money, size: 16),
                 const SizedBox(width: 4),
-                Text('Rs-$salary',style:TextStyle(fontWeight: FontWeight.bold,)),
+                Text('Rs-$salary',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    )),
               ],
             ),
             const SizedBox(height: 12),
@@ -307,28 +318,29 @@ class JobPostingCard extends StatelessWidget {
             Text(
               tag,
               style: const TextStyle(
-                fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                color: Colors.black
-                // fontWeight: FontWeight.bold,
-              ),
+                  fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black
+                  // fontWeight: FontWeight.bold,
+                  ),
             ),
             // const SizedBox(height: 12),
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: tags.map((tag) => Text(
-                '#$tag',
-                style: const TextStyle(fontSize: 12, color: Colors.black),
-              )).toList(),
-            )
-            ,
+              children: tags
+                  .map((tag) => Text(
+                        '#$tag',
+                        style:
+                            const TextStyle(fontSize: 12, color: Colors.black),
+                      ))
+                  .toList(),
+            ),
             const SizedBox(height: 12),
 
             if (audioUrl != null) ...[
               const SizedBox(height: 12),
               Container(
-                padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(22),
@@ -356,8 +368,7 @@ class JobPostingCard extends StatelessWidget {
                           Icons.play_arrow_outlined,
                           size: 24, //
                         ),
-                        onPressed: () {
-                         },
+                        onPressed: () {},
                       ),
                     ),
 
@@ -386,17 +397,20 @@ class JobPostingCard extends StatelessWidget {
                       ),
                     ),
                     child: Row(
-                      mainAxisSize: MainAxisSize.min, // Ensures the row takes minimal space
-                      mainAxisAlignment: MainAxisAlignment.center, // Centers content
+                      mainAxisSize: MainAxisSize.min,
+                      // Ensures the row takes minimal space
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // Centers content
                       children: [
-                        PhosphorIcon(PhosphorIconsBold.checkSquareOffset, size: 20, color: Colors.white)
-                        ,const SizedBox(width: 8), // Add spacing between icon and text
+                        Icon(PhosphorIcons.check_square_offset,
+                            size: 20, color: Colors.white),
+                        const SizedBox(width: 8),
+                        // Add spacing between icon and text
                         const Text('Apply Now'),
                       ],
                     ),
                   ),
-                )
-                ,
+                ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: OutlinedButton(
@@ -409,11 +423,15 @@ class JobPostingCard extends StatelessWidget {
                       ),
                     ),
                     child: Row(
-                      mainAxisSize: MainAxisSize.min, // Ensures the row takes minimal space
-                      mainAxisAlignment: MainAxisAlignment.center, // Centers content
+                      mainAxisSize: MainAxisSize.min,
+                      // Ensures the row takes minimal space
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      // Centers content
                       children: [
-                        PhosphorIcon(PhosphorIconsBold.userCircleDashed,size: 20, color: Color(0xFF5E4B8B)),
-                         const SizedBox(width: 8), // Add spacing between icon and text
+                        Icon(PhosphorIcons.user_circle,
+                            size: 20, color: Color(0xFF5E4B8B)),
+                        const SizedBox(width: 8),
+                        // Add spacing between icon and text
                         const Text(
                           'Profile',
                           style: TextStyle(color: Color(0xFF5E4B8B)),
@@ -421,8 +439,7 @@ class JobPostingCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                )
-                ,
+                ),
               ],
             ),
           ],
@@ -437,10 +454,10 @@ class CustomAudioWaveform extends StatelessWidget {
   Widget build(BuildContext context) {
     // Heights for the waveform bars to create the pattern shown in the image
     final List<double> heights = [
-      24, 28, 32, 26, 22,  // First group
-      28, 32, 26, 24, 20,  // Second group
-      26, 30, 24, 22, 18,  // Third group
-      24, 28, 22, 20, 16   // Fourth group
+      24, 28, 32, 26, 22, // First group
+      28, 32, 26, 24, 20, // Second group
+      26, 30, 24, 22, 18, // Third group
+      24, 28, 22, 20, 16 // Fourth group
     ];
 
     return Container(
@@ -453,7 +470,7 @@ class CustomAudioWaveform extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
           heights.length,
-              (index) => Padding(
+          (index) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2.9),
             child: Container(
               width: 3,
